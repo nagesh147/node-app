@@ -1,0 +1,83 @@
+{
+  "quoteNumber": "RTCQ0008004599",
+  "policyNumber": "RTC00008004589",
+  "effDate": "01/01/2020",
+  "zipCode": "02",
+  "variance": {
+    "lob": "PA",
+    "state": "MA",
+    "channel": "IA",
+    "uwCompanyCode": "ALN_PRAC"
+  },
+  "insuredInfo": {
+    "firstName": "Tony",
+    "middleInitial": "",
+    "lastName": "Summer",
+    "mobile": "569-968-9998",
+    "email": "x@mndb.com"
+  },
+  "agency": {
+    "code": "0000123",
+    "name": "gary , Nannnai, Dolan & Collins Ins.",
+    "website": "https://google.com",
+    "phone": "800-800-1234",
+    "address": {
+      "address1": "123 1/2 Chrystie St",
+      "address2": "",
+      "address3": "",
+      "city": "New York",
+      "state": "NY",
+      "zip": "New York"
+    }
+  },
+  "requests": [
+    {
+      "id": "1",
+      "slNo": "1",
+      "clientId": "AI",
+      "status": "EXPIRED",
+      "documents": [
+        {
+          "clintDocRefId": "docref1",
+          "code": "PROOF_OF_INS",
+          "messages": [
+            "Proof of Insurance can be satisfied by uploading one of the following:",
+            "Declaration Page",
+            "Photo of Declaration Page",
+            "Photo of current carrier online account"
+          ],
+          "status": "Completed"
+        },
+        {
+          "clintDocRefId": "docref2",
+          "code": "UTIL_BILL",
+          "messages": [
+            "A utility bill can be one of the following:",
+            "Eletric",
+            "Natural Gas"
+          ],
+          "status": "Pending"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "slNo": "2",
+      "clientId": "AI",
+      "status": "Active",
+      "documents": [
+        {
+          "clintDocRefId": "docref1",
+          "code": "PROOF_OF_INS",
+          "messages": [
+            "Proof of Insurance can be satisfied by uploading one of the following:",
+            "Declaration Page",
+            "Photo of Declaration Page",
+            "Photo of current carrier online account"
+          ],
+          "status": "Pending"
+        }
+      ]
+    }
+  ]
+}
