@@ -1,4 +1,12 @@
 module.exports = (mongoose) => {
+  var s_pol_agency_addr = mongoose.Schema({
+    address1: String,
+    address2: String,
+    address3: String,
+    city: String,
+    state: String,
+    zip: String,
+  })
   var s_pol_req_doc = mongoose.Schema({
     clintDocRefId: String,
     code: String,
@@ -19,6 +27,34 @@ module.exports = (mongoose) => {
     policyNumber: String,
     effDate: String,
     zipCode: String,
+    variance: {
+      lob: String,
+      state: String,
+      channel: String,
+      uwCompanyCode: String,
+    },
+    insuredInfo: {
+      firstName: String,
+      middleInitial: String,
+      lastName: String,
+      mobile: String,
+      email: String,
+    },
+    agency: {
+      code: String,
+      name: String,
+      website: String,
+      phone: String,
+      address: s_pol_agency_addr,
+      // address:{
+      //   address1: String,
+      //   address2: String,
+      //   address3: String,
+      //   city: String,
+      //   state: String,
+      //   zip: String,
+      // }
+    },
     requests: [s_pol_req],
   })
 

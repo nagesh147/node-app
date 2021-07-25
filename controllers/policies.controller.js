@@ -15,6 +15,9 @@ exports.create = (req, res) => {
     policyNumber: req.body.policyNumber,
     effDate: req.body.effDate,
     zipCode: req.body.zipCode,
+    variance: req.body.variance,
+    insuredInfo: req.body.insuredInfo,
+    agency: req.body.agency,
     requests: req.body.requests,
   })
 
