@@ -46,14 +46,6 @@ module.exports = (mongoose) => {
       website: String,
       phone: String,
       address: s_pol_agency_addr,
-      // address:{
-      //   address1: String,
-      //   address2: String,
-      //   address3: String,
-      //   city: String,
-      //   state: String,
-      //   zip: String,
-      // }
     },
     requests: [s_pol_req],
   })

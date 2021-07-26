@@ -9,16 +9,17 @@ exports.create = (req, res) => {
     return
   }
 
+  const reqBody = req.body
   // Create a Policy
   const policy = new Policy({
-    quoteNumber: req.body.quoteNumber,
-    policyNumber: req.body.policyNumber,
-    effDate: req.body.effDate,
-    zipCode: req.body.zipCode,
-    variance: req.body.variance,
-    insuredInfo: req.body.insuredInfo,
-    agency: req.body.agency,
-    requests: req.body.requests,
+    quoteNumber: reqBody.quoteNumber,
+    policyNumber: reqBody.policyNumber,
+    effDate: reqBody.effDate,
+    zipCode: reqBody.zipCode,
+    variance: reqBody.variance,
+    insuredInfo: reqBody.insuredInfo,
+    agency: reqBody.agency,
+    requests: reqBody.requests,
   })
 
   // Save Policy in the database

@@ -6,7 +6,7 @@ module.exports = (app) => {
   // Create a new Policy
   router.post('/', policies.create)
 
-  // Retrieve all Policys
+  // Retrieve all Policies
   router.get('/', policies.findAll)
 
   // Retrieve all published Policys
@@ -21,8 +21,8 @@ module.exports = (app) => {
   // Delete a Policy with id
   router.delete('/:id', policies.delete)
 
-  // Create a new Policy
+  // Delete all policies
   router.delete('/', policies.deleteAll)
 
-  app.use('/api/policies', router)
+  app.use('/api/policy', router)
 }
