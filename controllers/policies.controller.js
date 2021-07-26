@@ -99,7 +99,7 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
   const policyNumber = req.params.policyNumber
 
-  Policy.findOneAndRemove(policyNumber, { useFindAndModify: false })
+  Policy.findOneAndRemove({ policyNumber }, { useFindAndModify: false })
     .then((data) => {
       if (!data) {
         res.status(404).send({
