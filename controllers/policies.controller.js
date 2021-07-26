@@ -38,11 +38,7 @@ exports.create = (req, res) => {
 
 // Retrieve all Policys from the database.
 exports.findAll = (req, res) => {
-  const title = req.query.title
-  var condition = title
-    ? { title: { $regex: new RegExp(title), $options: 'i' } }
-    : {}
-
+  var condition = {}
   Policy.find(condition)
     .then((data) => {
       res.send(data)
@@ -55,22 +51,26 @@ exports.findAll = (req, res) => {
     })
 }
 
-// Find a single Policy with an id
+// Find a single Policy with policyNumber
 exports.findOne = (req, res) => {
-  const id = req.params.id
+  const policyNumber = req.params.policyNumber
 
-  Policy.findById(id)
+  Policy.findOne({ policyNumber: policyNumber })
     .then((data) => {
       if (!data)
-        res.status(404).send({ message: 'Not found Policy with id ' + id })
+        res.status(404).send({
+          message: 'Not found Policy with policyNumber ' + policyNumber,
+        })
       else res.send(data)
     })
     .catch((err) => {
-      res.status(500).send({ message: 'Error retrieving Policy with id=' + id })
+      res.status(500).send({
+        message: 'Error retrieving Policy with policyNumber=' + policyNumber,
+      })
     })
 }
 
-// Update a Policy by the id in the request
+// Update a Policy by the policyNumber in the request
 exports.update = (req, res) => {
   if (!req.body) {
     return res.status(400).send({
@@ -78,32 +78,32 @@ exports.update = (req, res) => {
     })
   }
 
-  const id = req.params.id
+  const policyNumber = req.params.policyNumber
 
-  Policy.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  Policy.updateOne({ policyNumber }, req.body, { useFindAndModify: false })
     .then((data) => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot update Policy with id=${id}. Maybe Policy was not found!`,
+          message: `Cannot update Policy with policyNumber=${policyNumber}. Maybe Policy was not found!`,
         })
       } else res.send({ message: 'Policy was updated successfully.' })
     })
     .catch((err) => {
       res.status(500).send({
-        message: 'Error updating Policy with id=' + id,
+        message: 'Error updating Policy with policyNumber=' + policyNumber,
       })
     })
 }
 
-// Delete a Policy with the specified id in the request
+// Delete a Policy with the specified policyNumber in the request
 exports.delete = (req, res) => {
-  const id = req.params.id
+  const policyNumber = req.params.policyNumber
 
-  Policy.findByIdAndRemove(id, { useFindAndModify: false })
+  Policy.findOneAndRemove(policyNumber, { useFindAndModify: false })
     .then((data) => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot delete Policy with id=${id}. Maybe Policy was not found!`,
+          message: `Cannot delete Policy with policyNumber=${policyNumber}. Maybe Policy was not found!`,
         })
       } else {
         res.send({
@@ -113,7 +113,7 @@ exports.delete = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: 'Could not delete Policy with id=' + id,
+        message: 'Could not delete Policy with policyNumber=' + policyNumber,
       })
     })
 }

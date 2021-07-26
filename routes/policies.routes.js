@@ -4,25 +4,25 @@ module.exports = (app) => {
   var router = require('express').Router()
 
   // Create a new Policy
-  router.post('/', policies.create)
+  router.post('/createPolicy', policies.create)
 
   // Retrieve all Policies
-  router.get('/', policies.findAll)
+  router.get('/policies', policies.findAll)
 
   // Retrieve all published Policys
   router.get('/published', policies.findAllPublished)
 
-  // Retrieve a single Policy with id
-  router.get('/:id', policies.findOne)
+  // Retrieve a single Policy with policyNumber
+  router.get('/:policyNumber', policies.findOne)
 
-  // Update a Policy with id
-  router.put('/:id', policies.update)
+  // Update a Policy with policyNumber
+  router.put('/:policyNumber', policies.update)
 
-  // Delete a Policy with id
-  router.delete('/:id', policies.delete)
+  // Delete a Policy with policyNumber
+  router.delete('/:policyNumber', policies.delete)
 
   // Delete all policies
   router.delete('/', policies.deleteAll)
 
-  app.use('/api/policy', router)
+  app.use('/policy/', router)
 }
